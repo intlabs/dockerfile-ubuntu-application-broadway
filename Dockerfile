@@ -48,6 +48,24 @@ RUN apt-get update
 # Install Xorg
 RUN apt-get install -y xorg
 
+# Install VNC server
+RUN apt-get install -y tightvncserver
+# Set up VNC
+RUN apt-get install -y expect
+RUN mkdir -p /root/.vnc
+ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/xstartup /root/.vnc/xstartup
+RUN chmod 755 /root/.vnc/xstartup
+ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/spawn-desktop.sh /usr/local/etc/spawn-desktop.sh
+RUN chmod +x /usr/local/etc/spawn-desktop.sh
+ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/start-vnc-expect-script.sh /usr/local/etc/start-vnc-expect-script.sh
+RUN chmod +x /usr/local/etc/start-vnc-expect-script.sh
+ADD https://raw.githubusercontent.com/intlabs/dockerfile-ubuntu-libreoffice-vnc/master/vnc.conf /etc/vnc.conf
+
+#Install noVNC
+RUN apt-get install -y git python-numpy
+RUN cd / && git clone git://github.com/kanaka/noVNC && cp noVNC/vnc_auto.html noVNC/index.html
+
+
 # Install the application to serve
 RUN apt-get install -y libreoffice libcanberra-gtk-module
 
@@ -67,3 +85,7 @@ WORKDIR /data
 
 # Expose ports.
 EXPOSE 22
+# Expose ports.
+EXPOSE 8080
+# Expose ports.
+EXPOSE 80

@@ -54,7 +54,7 @@ This will get you going superfast - one line! - from a fresh Ubuntu install (rem
 
 * this will run and drop you into a session:
 
-	`sudo docker run -it --rm -p 5901:5901 intlabs/dockerfile-ubuntu-application-broadway`
+	`sudo docker run -it --rm -p 223:22 -p 8080:8080 intlabs/dockerfile-ubuntu-application-broadway`
 
 * or for silent running:
 
