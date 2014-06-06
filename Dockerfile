@@ -60,7 +60,7 @@ RUN chmod +x /usr/local/etc/start-vnc-expect-script.sh
 ADD vnc.conf /etc/vnc.conf
 
 #Install noVNC
-RUN apt-get install -y git python-numpy
+RUN apt-get install -y git python-numpy net-tools
 RUN cd / && git clone git://github.com/kanaka/noVNC && cp noVNC/vnc_auto.html noVNC/index.html
 
 
