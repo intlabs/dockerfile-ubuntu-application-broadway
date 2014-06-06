@@ -65,7 +65,7 @@ RUN cd / && git clone git://github.com/kanaka/noVNC && cp noVNC/vnc_auto.html no
 
 
 # Install the application to serve
-RUN apt-get install -y libreoffice libcanberra-gtk-module
+RUN apt-get install -y gedit
 
 #Bring In startup script
 ADD startup.sh /etc/startup.sh
