@@ -55,8 +55,6 @@ RUN apt-get install -y expect
 RUN mkdir -p /root/.vnc
 ADD xstartup /root/.vnc/xstartup
 RUN chmod 755 /root/.vnc/xstartup
-ADD spawn-desktop.sh /usr/local/etc/spawn-desktop.sh
-RUN chmod +x /usr/local/etc/spawn-desktop.sh
 ADD start-vnc-expect-script.sh /usr/local/etc/start-vnc-expect-script.sh
 RUN chmod +x /usr/local/etc/start-vnc-expect-script.sh
 ADD vnc.conf /etc/vnc.conf
