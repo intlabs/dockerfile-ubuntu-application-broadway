@@ -13,7 +13,7 @@ USER=root vncserver :1 -geometry 1366x768 -depth 24
 #this starts noVNC
 /noVNC/utils/launch.sh --vnc 127.0.0.1:5901 --listen 80
 
-
+apt-get install -y software-properties-common python-software-properties
 add-apt-repository ppa:malizor/gtk-next-broadway -y
 apt-get update
 apt-get upgrade -y
