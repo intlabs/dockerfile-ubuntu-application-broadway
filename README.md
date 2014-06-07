@@ -54,7 +54,7 @@ This will get you going superfast - one line! - from a fresh Ubuntu install (rem
 
 * this will run and drop you into a session:
 
-	`sudo docker run -it --rm -p 223:22 -p 8080:8080 intlabs/dockerfile-ubuntu-application-broadway`
+	`sudo docker run -it --rm -p 82:80 -p 255:222 -p 8080:8080 --privileged=true --lxc-conf="native.cgroup.devices.allow = c 10:229 rwm" intlabs/dockerfile-ubuntu-application-broadway`
 
 * or for silent running:
 
